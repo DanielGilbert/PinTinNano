@@ -19,6 +19,16 @@ namespace PinTin.Edison
         [DllImport("pintin_display")]
         static private extern void CallBegin(IntPtr pTestClassObject);
 
+        public string CallGetUserTextInput(string v)
+        {
+            return "";
+        }
+
+        public void CallDisplayOkMessage(string v)
+        {
+            throw new NotImplementedException();
+        }
+
         //[DllImport("ExampleUnmanagedDLL.dll", CharSet = CharSet.Ansi)]
         //static private extern void CallPassString(IntPtr pTestClassObject, string strValue);
 

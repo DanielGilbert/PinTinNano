@@ -1,9 +1,12 @@
 ﻿using PinTin.Core;
+using PinTin.Core.Storage;
+using PinTin.Core.Storage.Interfaces;
 using PinTin.Edison;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,11 +14,37 @@ namespace PinTinNano
 {
     class Program
     {
+        static bool noNewPassword = true;
+        static SecureString password;
+
         static void Main(string[] args)
         {
-            PinTinEdison wrapper = new PinTinEdison();
-            wrapper.CallBegin();
-            wrapper.Dispose();
+            IStorage xmlStorage = new XmlStorage();
+            PinTinEdison pinTinEdison = new PinTinEdison();
+            pinTinEdison.CallBegin();
+            pinTinEdison.Dispose();
+
+            Console.WriteLine("Welcome to the PinTin");
+            Console.WriteLine("Enter your password.");
+
+            //Check, if there is a safe already available
+            if (!xmlStorage.IsSafeAvailable())
+            {
+                while (noNewPassword)
+                {
+                    //Ask the user for a new Password
+                    pinTinEdison.CallDisplayOkMessage("Please enter a new password.");
+
+                    //Get the new Passwort
+                    password = new SecureString( pinTinEdison.CallGetUserTextInput("Enter:");
+
+
+                }
+            }
+
+            //Ask for the Master Password
+            pinTinEdison.CallGetUserTextInput("Password?");
+
             //Stopwatch sw = new Stopwatch();
             //sw.Start();
             //string encryptedData = AESThenHMAC.SimpleEncryptWithPassword("Test1234", "Test4321", new byte[] { 255, 255 });

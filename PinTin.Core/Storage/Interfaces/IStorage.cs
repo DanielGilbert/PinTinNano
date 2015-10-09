@@ -13,5 +13,7 @@ namespace PinTin.Core.Storage.Interfaces
         List<Entry> Load(string file);
         void Save(List<Entry> entries);
         void Save(List<Entry> entries, string file);
+        bool IsSafeAvailable();
+        bool IsSafeAvailable(string file);
     }
 }

@@ -8,8 +8,18 @@ using PinTin.Commons.Models;
 
 namespace PinTin.Core.Storage
 {
-    public class XMLStorage : IStorage
+    public class XmlStorage : IStorage
     {
+        public bool IsSafeAvailable()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsSafeAvailable(string file)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Entry> Load()
         {
             throw new NotImplementedException();
