@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AesGcm.cs" />
+    <Compile Include="Encryption\AesGcm.cs" />
     <Compile Include="AesThenHmac.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\Interfaces\IStorage.cs" />

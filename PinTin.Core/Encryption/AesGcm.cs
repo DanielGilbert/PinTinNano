@@ -14,9 +14,8 @@ using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
-namespace PinTin.Core
+namespace PinTin.Core.Encryption
 {
-
     public static class AESGCM
     {
         private static readonly SecureRandom Random = new SecureRandom();
