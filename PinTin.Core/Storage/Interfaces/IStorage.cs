@@ -11,6 +11,7 @@ namespace PinTin.Core.Storage.Interfaces
     {
         List<Entry> Load();
         List<Entry> Load(string file);
-        Save(List<Entry> entries);
+        void Save(List<Entry> entries);
+        void Save(List<Entry> entries, string file);
     }
 }
