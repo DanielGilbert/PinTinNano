@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PinTin.Commons.Models;
+using System.Security;
 
 namespace PinTin.Core.Storage
 {
@@ -20,22 +21,22 @@ namespace PinTin.Core.Storage
             throw new NotImplementedException();
         }
 
-        public List<Entry> Load()
+        public List<Entry> Load(SecureString password)
         {
             throw new NotImplementedException();
         }
 
-        public List<Entry> Load(string file)
+        public List<Entry> Load(string file, SecureString password)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(List<Entry> entries)
+        public void Save(List<Entry> entries, SecureString password)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(List<Entry> entries, string file)
+        public void Save(List<Entry> entries, string file, SecureString password)
         {
             throw new NotImplementedException();
         }

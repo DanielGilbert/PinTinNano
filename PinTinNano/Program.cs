@@ -1,4 +1,6 @@
-﻿using PinTin.Core;
+﻿using PinTin.Commons.Models;
+using PinTin.Core;
+using PinTin.Core.Helper;
 using PinTin.Core.Storage;
 using PinTin.Core.Storage.Interfaces;
 using PinTin.Edison;
@@ -16,13 +18,14 @@ namespace PinTinNano
     {
         static bool noNewPassword = true;
         static SecureString password;
+        static List<Entry> entries;
 
         static void Main(string[] args)
         {
             IStorage xmlStorage = new XmlStorage();
             PinTinEdison pinTinEdison = new PinTinEdison();
+
             pinTinEdison.CallBegin();
-            pinTinEdison.Dispose();
 
             Console.WriteLine("Welcome to the PinTin");
             Console.WriteLine("Enter your password.");
@@ -36,10 +39,13 @@ namespace PinTinNano
                     pinTinEdison.CallDisplayOkMessage("Please enter a new password.");
 
                     //Get the new Passwort
-                    password = new SecureString( pinTinEdison.CallGetUserTextInput("Enter:");
+                    password = SecureStringHelper.MakeStringSecure(pinTinEdison.CallGetUserTextInput("Enter:"));
 
-
+                    //TODO: Add compare call and some logic
+                    noNewPassword = false;
                 }
+
+                //xmlStorage.Save()
             }
 
             //Ask for the Master Password
@@ -77,7 +83,7 @@ namespace PinTinNano
             //Console.WriteLine("Elapsed time: {0}", sw.Elapsed.TotalMilliseconds);
             //Console.WriteLine("--------------------------------");
             Console.Read();
-
+            pinTinEdison.Dispose();
 
         }
     }
