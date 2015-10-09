@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encryption\AesGcm.cs" />
+    <Compile Include="Helper\SecureStringHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\Interfaces\IStorage.cs" />
     <Compile Include="Storage\XmlStorage.cs" />
