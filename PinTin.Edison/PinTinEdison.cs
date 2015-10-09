@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PinTin.Edison
 {
-    public class PinTinEdison
+    public class PinTinEdison : IDisposable
     {
         #region PInvokes
         [DllImport("pintin_display")]
