@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PinTinNanoWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,6 +60,10 @@
     <ProjectReference Include="..\PinTin.Core\PinTin.Core.csproj">
       <Project>{fe2a2ee7-dd7e-4e9a-8f33-a722eaf6e111}</Project>
       <Name>PinTin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PinTin.Edison\PinTin.Edison.csproj">
+      <Project>{3495039c-911c-4f31-a754-34c8d78931c6}</Project>
+      <Name>PinTin.Edison</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

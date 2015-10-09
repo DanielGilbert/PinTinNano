@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PinTinNano
+namespace PinTin.Edison
 {
-    class PinTinDisplayWrapper
+    public class PinTinEdison
     {
         #region PInvokes
         [DllImport("pintin_display")]
@@ -30,7 +30,7 @@ namespace PinTinNano
         private IntPtr m_pNativeObject;     // Variable to hold the C++ class's this pointer
         #endregion Members
 
-        public PinTinDisplayWrapper()
+        public PinTinEdison()
         {
             // We have to Create an instance of this class through an exported function
             this.m_pNativeObject = CreatePinTinDisplay();
@@ -60,7 +60,7 @@ namespace PinTinNano
 
         // This finalizer is called when Garbage collection occurs, but only if
         // the IDisposable.Dispose method wasn't already called.
-        ~PinTinDisplayWrapper()
+        ~PinTinEdison()
         {
             Dispose(false);
         }

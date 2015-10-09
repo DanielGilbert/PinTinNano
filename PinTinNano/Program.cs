@@ -1,4 +1,5 @@
 ﻿using PinTin.Core;
+using PinTin.Edison;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +13,7 @@ namespace PinTinNano
     {
         static void Main(string[] args)
         {
-            PinTinDisplayWrapper wrapper = new PinTinDisplayWrapper();
+            PinTinEdison wrapper = new PinTinEdison();
             wrapper.CallBegin();
             wrapper.Dispose();
             //Stopwatch sw = new Stopwatch();
