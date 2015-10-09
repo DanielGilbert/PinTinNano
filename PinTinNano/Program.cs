@@ -30,6 +30,8 @@ namespace PinTinNano
             Console.WriteLine("Welcome to the PinTin");
             Console.WriteLine("Enter your password.");
 
+            pinTinEdison.CallDisplayTimeoutMessage("Hi :)", 2000);
+
             //Check, if there is a safe already available
             if (!xmlStorage.IsSafeAvailable())
             {
@@ -45,7 +47,22 @@ namespace PinTinNano
                     noNewPassword = false;
                 }
 
-                //xmlStorage.Save()
+                entries = new List<Entry>();
+
+                xmlStorage.Save(entries, password);
+            }
+            else
+            {
+                //Get the Passwort
+                password = SecureStringHelper.MakeStringSecure(pinTinEdison.CallGetUserTextInput("Password:"));
+                try
+                {
+                    entries = xmlStorage.Load(password);
+                }
+                catch(Exception ex)
+                {
+                    pinTinEdison.CallDisplayOkMessage("Wrong Password. Exiting...");
+                }
             }
 
             //Ask for the Master Password

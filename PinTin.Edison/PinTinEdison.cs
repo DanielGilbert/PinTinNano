@@ -29,6 +29,11 @@ namespace PinTin.Edison
             throw new NotImplementedException();
         }
 
+        public void CallDisplayTimeoutMessage(string v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
+
         //[DllImport("ExampleUnmanagedDLL.dll", CharSet = CharSet.Ansi)]
         //static private extern void CallPassString(IntPtr pTestClassObject, string strValue);
 
