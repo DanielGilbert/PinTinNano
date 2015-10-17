@@ -10,10 +10,10 @@ namespace PinTin.Core.Storage.Interfaces
 {
     public interface IStorage
     {
-        List<Entry> Load(SecureString password);
-        List<Entry> Load(string file, SecureString password);
-        void Save(List<Entry> entries, SecureString password);
-        void Save(List<Entry> entries, string file, SecureString password);
+        Database Load(SecureString password);
+        Database Load(string file, SecureString password);
+        void Save(Database database, SecureString password);
+        void Save(Database database, string file, SecureString password);
         bool IsSafeAvailable();
         bool IsSafeAvailable(string file);
     }

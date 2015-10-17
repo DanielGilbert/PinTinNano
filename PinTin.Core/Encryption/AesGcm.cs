@@ -28,7 +28,7 @@ namespace PinTin.Core.Encryption
         //Preconfigured Password Key Derivation Parameters
         public static readonly int SaltBitSize = 128;
         public static readonly int Iterations = 1000;
-        public static readonly int MinPasswordLength = 8;
+        public static readonly int MinPasswordLength = 1;
 
 
         /// <summary>

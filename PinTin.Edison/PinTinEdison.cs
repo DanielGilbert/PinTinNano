@@ -19,15 +19,21 @@ namespace PinTin.Edison
         [DllImport("pintin_display")]
         static private extern void CallBegin(IntPtr pTestClassObject);
 
-        public string CallGetUserTextInput(string v)
-        {
-            return "";
-        }
+        [DllImport("pintin_display", CharSet = CharSet.Ansi)]
+        static private extern string CallGetUserTextInput(IntPtr pPinTinDisplay, string title);
 
-        public void CallDisplayOkMessage(string v)
-        {
-            throw new NotImplementedException();
-        }
+        [DllImport("pintin_display")]
+        static private extern int CallMenu(IntPtr pTestClassObject);
+
+        [DllImport("pintin_display", CharSet = CharSet.Ansi)]
+        static private extern void CallDisplayOkMessage(IntPtr m_pNativeObject, string message);
+
+        [DllImport("pintin_display", CharSet = CharSet.Ansi)]
+        static private extern void CallDisplayMessage(IntPtr m_pNativeObject, string message);
+
+        [DllImport("pintin_display")]
+        static private extern void CallClearDisplay(IntPtr m_pNativeObject);
+        
 
         public void CallDisplayTimeoutMessage(string v1, int v2)
         {
@@ -84,6 +90,31 @@ namespace PinTin.Edison
         public void CallBegin()
         {
             CallBegin(this.m_pNativeObject);
+        }
+
+        public string CallGetUserTextInput(string title)
+        {
+            return CallGetUserTextInput(this.m_pNativeObject, title);
+        }
+        
+        public int CallMenu()
+        {
+            return CallMenu(this.m_pNativeObject);
+        }
+
+        public void CallDisplayOkMessage(string message)
+        {
+            CallDisplayOkMessage(this.m_pNativeObject, message);
+        }
+
+        public void CallDisplayMessage(string message)
+        {
+            CallDisplayMessage(this.m_pNativeObject, message);
+        }
+
+        public void CallClearDisplay()
+        {
+            CallClearDisplay(this.m_pNativeObject);
         }
         #endregion Wrapper methods
     }
