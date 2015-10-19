@@ -84,7 +84,12 @@ namespace PinTinNano
                         Console.WriteLine("List");
                         if (database.Entries.Count != 0)
                         {
-                            pinTinEdison.CallDisplayOkMessage(database.Entries[0].Title);
+                            int selection = pinTinEdison.CallDisplayEntries(database.Entries.Select(x => x.Title).ToArray(), database.Entries.Count);
+                            if (selection > -1)
+                            {
+                                Entry selectedEntry = database.Entries[selection];
+                                int decision = pinTinEdison.CallDisplayEntry(selectedEntry.Uri, selectedEntry.Username, selectedEntry.Password, selectedEntry.Note);
+                            }
                         }
                         else
                         {

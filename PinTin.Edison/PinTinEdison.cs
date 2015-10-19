@@ -33,7 +33,12 @@ namespace PinTin.Edison
 
         [DllImport("pintin_display")]
         static private extern void CallClearDisplay(IntPtr m_pNativeObject);
-        
+
+        [DllImport("pintin_display")]
+        static private extern int CallDisplayEntries(IntPtr m_pNativeObject, string[] entries, int count);
+
+        [DllImport("pintin_display", CharSet = CharSet.Ansi)]
+        static private extern int CallDisplayEntry(IntPtr m_pNativeObject, string uri, string username, string password, string note);
 
         public void CallDisplayTimeoutMessage(string v1, int v2)
         {
@@ -96,7 +101,12 @@ namespace PinTin.Edison
         {
             return CallGetUserTextInput(this.m_pNativeObject, title);
         }
-        
+
+        public int CallDisplayEntry(string uri, string username, string password, string note)
+        {
+            return CallDisplayEntry(this.m_pNativeObject, uri, username, password, note);
+        }
+
         public int CallMenu()
         {
             return CallMenu(this.m_pNativeObject);
@@ -115,6 +125,11 @@ namespace PinTin.Edison
         public void CallClearDisplay()
         {
             CallClearDisplay(this.m_pNativeObject);
+        }
+
+        public int CallDisplayEntries(string[] entries, int count)
+        {
+            return CallDisplayEntries(this.m_pNativeObject, entries, count);
         }
         #endregion Wrapper methods
     }
